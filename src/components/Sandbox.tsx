@@ -7,7 +7,7 @@ type defProps = {
 const ChildComponent = ({ message }: defProps): JSX.Element => <p>{message}</p>;
 
 // With Children
-const WithChildren = ({ children }: { children: ReactNode }): ReactElement => {
+const WithChildren = ({ children }: { children: ReactNode }): JSX.Element => {
    return <p>{children}</p>;
 };
 

@@ -41,3 +41,12 @@ const ChildComponent = ({ message }: defProps): JSX.Element => {
    return <p>{message}</p>;
 };
 ```
+
+> An example of using Children Components
+
+```typescript
+// With Children
+const WithChildren = ({ children }: { children: ReactNode }): ReactElement => {
+   return <p>{children}</p>;
+};
+```
