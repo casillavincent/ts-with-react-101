@@ -2,10 +2,7 @@
 
 ## My Notes for React with TypeScript
 
-For educational purposes only.  Refer to [this](https://github.com/typescript-cheatsheets/react) cheatsheet by @sw-yx for more information
-
-<br markdown="1">
-<br markdown="1">
+For educational purposes only. Refer to [this](https://github.com/typescript-cheatsheets/react) cheatsheet by @sw-yx for more information
 
 # **Basics**
 
@@ -46,4 +43,34 @@ const ChildComponent = ({ message }: defProps): JSX.Element => {
 const WithChildren = ({ children }: { children: ReactNode }): ReactElement => {
    return <p>{children}</p>;
 };
+```
+
+-  ### useState Anatomy
+
+```typescript
+/* TypeScript inference will infer the type and disable. */
+const [number, setNumber] = useState<number>(0);
+
+const changeNumber = (x: number) => {
+   setNumber(x);
+   console.log(x);
+};
+
+useEffect(() => {
+   changeNumber(10);
+}, [number]);
+```
+
+-  ### Setting the interface (or type) for useState
+
+```typescript
+interface MoviesState {
+   movies: {
+      title: string;
+      release: number;
+      rating: number;
+      good: boolean;
+   }[];
+}
+const [movies, setMovies] = useState<MoviesState["movies"]>([]);
 ```
