@@ -4,8 +4,6 @@
 
 For educational purposes only.  Refer to [this](https://github.com/typescript-cheatsheets/react) cheatsheet by @sw-yx for more information
 
----
-
 <br markdown="1">
 <br markdown="1">
 
