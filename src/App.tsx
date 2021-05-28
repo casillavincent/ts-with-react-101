@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 
 function App() {
    const API_KEY: string = "8b205dd749ffb47624d44012927f6953";
+   const BASE_URL_IMG = "https://image.tmdb.org/t/p/w500";
 
    /* Set Interface */
    interface Movie {
       movies: {
          title: string;
          id: number;
+         poster_path: string;
+         overview: string;
       }[];
    }
    const [popular, setPopular] = React.useState<Movie["movies"] | null>(null);
@@ -35,8 +38,14 @@ function App() {
          {popular !== null &&
             popular.map((movie, i) => (
                <div className={`popular-movie-item-${i}`} id={`${movie.id}`}>
+                  <img
+                     src={`${BASE_URL_IMG}${movie.poster_path}`}
+                     alt={`${movie.title}`}
+                     width="250"
+                  />
                   <h2>{movie.title}</h2>
                   <p>{movie.id}</p>
+                  <p>{movie.overview}</p>
                </div>
             ))}
       </div>
