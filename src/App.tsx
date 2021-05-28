@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
          overview: string;
       }[];
    }
-   const [popular, setPopular] = React.useState<Movie["movies"] | null>(null);
+   const [popular, setPopular] = useState<Movie["movies"] | null>(null);
 
    /* Fetch Movies */
    const fetchPopular = async () => {
@@ -31,13 +32,29 @@ function App() {
    if (popular !== null) {
       console.log(popular);
    }
+
+   // let toLocal: Movie["movies"] = [];
+   // const filterData = () => {
+   //    if (popular !== null) {
+   //       for (let i = 0; i <= popular.length; i++) {
+   //          const toPush: { title: string; id: number; poster_path: string; overview: string } = {
+   //             title: popular[i].title,
+   //             id: popular[i].id,
+   //             poster_path: popular[i].poster_path,
+   //             overview: popular[i].overview,
+   //          };
+   //       }
+   //    }
+   // };
+   // filterData();
+
    return (
       <div className="App">
          <h1>TypeScript & React</h1>
          {/* Map through all popular items */}
          {popular !== null &&
             popular.map((movie, i) => (
-               <div className={`popular-movie-item-${i}`} id={`${movie.id}`}>
+               <div className={`popular-movie-item-${i}`} id={`${movie.id}`} key={i}>
                   <img
                      src={`${BASE_URL_IMG}${movie.poster_path}`}
                      alt={`${movie.title}`}
